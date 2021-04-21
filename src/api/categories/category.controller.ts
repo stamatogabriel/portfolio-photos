@@ -50,17 +50,20 @@ export class CategoryController {
   }
 
   @Get(':id')
-  public async findById(@Param('id') param) {
+  public async findById(@Param('id') param: string) {
     return this.findByIdCategory.findById(param);
   }
 
   @Put(':id')
-  public async update(@Param('id') param, @Body() category: UpdateCategoryDto) {
+  public async update(
+    @Param('id') param: string,
+    @Body() category: UpdateCategoryDto
+  ) {
     return this.updateCategory.updateById(param, category);
   }
 
   @Delete(':id')
-  public async delete(@Param('id') param) {
+  public async delete(@Param('id') param: string) {
     return this.destroyCategory.destroy(param);
   }
 }

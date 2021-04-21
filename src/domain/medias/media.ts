@@ -7,6 +7,7 @@ export type Media = {
   description_portuguese?: string;
   title_english: string;
   description_english?: string;
+  media_url: string;
 };
 
 export type MediaIndex = {

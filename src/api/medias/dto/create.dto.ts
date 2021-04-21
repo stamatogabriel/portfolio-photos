@@ -23,4 +23,8 @@ export class CreateMediaDTO {
   @IsOptional()
   @ApiProperty({ required: false })
   public readonly description_english: string | undefined;
+
+  @IsString()
+  @ApiProperty({ required: true })
+  public readonly media_url: string;
 }

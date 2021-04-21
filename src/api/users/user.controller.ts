@@ -45,17 +45,17 @@ export class UserController {
   }
 
   @Get(':id')
-  public async findById(@Param('id') param) {
+  public async findById(@Param('id') param: string) {
     return this.findByIdUser.findById(param);
   }
 
   @Put(':id')
-  public async update(@Param('id') param, @Body() user: UpdateUserDto) {
+  public async update(@Param('id') param: string, @Body() user: UpdateUserDto) {
     return this.updateUser.updateById(param, user);
   }
 
   @Delete(':id')
-  public async delete(@Param('id') param) {
+  public async delete(@Param('id') param: string) {
     return this.destroyUser.destroy(param);
   }
 }
