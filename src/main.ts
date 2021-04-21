@@ -5,8 +5,10 @@ import { urlencoded } from 'body-parser';
 
 import { AppModule } from './app.module';
 
+import * as helmet from 'helmet';
+
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   app.setGlobalPrefix('api/v1');
 
@@ -20,6 +22,10 @@ async function bootstrap() {
 
   await app.use(urlencoded({ extended: true }));
 
-  await app.listen(process.env.PORT || 3000);
+  app.use(helmet());
+
+  app.enableCors();
+
+  await app.listen(process.env.PORT || 8080);
 }
 bootstrap();
