@@ -55,7 +55,9 @@ export class MediaController {
     })
   )
   public async create(@Body() media: CreateMediaDTO, @UploadedFiles() files) {
-    media = { ...media, media_url: files[0].location };
+    if (files.length) {
+      media = { ...media, media_url: files[0].location };
+    }
     return this.createMedia.create(media);
   }
 
@@ -90,7 +92,9 @@ export class MediaController {
     @Body() media: UpdateMediaDto,
     @UploadedFiles() files
   ) {
-    media = { ...media, media_url: files[0].location };
+    if (files.length) {
+      media = { ...media, media_url: files[0].location };
+    }
     return this.updateByIdMedia.updateById(param, media);
   }
 
