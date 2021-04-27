@@ -6,6 +6,7 @@ import { DatabaseConnectionService } from './database/connection.service';
 import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
 
 import { ApiModule } from './api/api.module';
+import { AuthModule } from './auth/auth.module'
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -30,6 +31,7 @@ import { AppService } from './app.service';
       inject: [DatabaseConnectionService],
     }),
     ApiModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
