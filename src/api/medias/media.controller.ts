@@ -55,7 +55,7 @@ export class MediaController {
     })
   )
   public async create(@Body() media: CreateMediaDTO, @UploadedFiles() files) {
-    if (files.length) {
+    if (files && files.length) {
       media = { ...media, media_url: files[0].location };
     }
     return this.createMedia.create(media);
