@@ -92,7 +92,7 @@ export class MediaController {
     @Body() media: UpdateMediaDto,
     @UploadedFiles() files
   ) {
-    if (files.length) {
+    if (files && files.length) {
       media = { ...media, media_url: files[0].location };
     }
     return this.updateByIdMedia.updateById(param, media);
