@@ -8,6 +8,7 @@ export const UserSchema = new Schema(
     _id: { type: Schema.Types.ObjectId, required: true, auto: true },
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
+    avatar: { type: String },
     password: { type: String, required: true, select: false },
     passwordResetToken: { type: String, default: null, select: false },
     passwordResetExpires: { type: Date, default: null, select: false },
@@ -29,4 +30,4 @@ UserSchema.pre<IUserEntity>(['save'], function (next) {
   next();
 });
 
-export interface IUserEntity extends Omit<User, '_id'>, Document {}
+export interface IUserEntity extends Omit<User, '_id'>, Document { }

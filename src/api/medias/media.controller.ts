@@ -9,7 +9,7 @@ import {
   Req,
   UseInterceptors,
   UploadedFiles,
-  // UseGuards,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiTags, ApiQuery } from '@nestjs/swagger';
 import { FilesInterceptor, MulterModule } from '@nestjs/platform-express';
@@ -25,7 +25,7 @@ import { DestroyMedia } from '../../domain/medias/delete';
 
 import { StorageTypes, FileFilter } from '../../common/configs';
 
-// import { JwtAuthGuard } from '../../auth/guards/jwt.guard';
+import { JwtAuthGuard } from '../../auth/guards/jwt.guard';
 
 @ApiTags('Medias')
 @Controller('medias')

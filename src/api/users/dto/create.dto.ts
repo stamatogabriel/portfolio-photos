@@ -14,4 +14,8 @@ export class CreateUserDTO {
   @IsString()
   @ApiProperty({ required: true })
   public readonly password: string | undefined;
+
+  @IsString()
+  @ApiProperty({ required: false })
+  public readonly avatar: string;
 }

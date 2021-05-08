@@ -6,6 +6,7 @@ import { FindById } from './find_by_id';
 import { FindByEmail } from './find_by_email';
 import { FindByToken } from './find_by_token';
 import { UpdateById } from './update_by_id';
+import { UpdatePassById } from './update_pass_by_id';
 import { Destroy } from './delete';
 import { UserRepositoryModule } from '../../persistence/user/user_repository.module';
 
@@ -18,6 +19,7 @@ import { UserRepositoryModule } from '../../persistence/user/user_repository.mod
     FindByEmail,
     FindByToken,
     UpdateById,
+    UpdatePassById,
     Destroy,
   ],
   exports: [
@@ -27,6 +29,7 @@ import { UserRepositoryModule } from '../../persistence/user/user_repository.mod
     FindByEmail,
     FindByToken,
     UpdateById,
+    UpdatePassById,
     Destroy,
   ],
 })

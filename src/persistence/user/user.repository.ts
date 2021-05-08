@@ -8,7 +8,7 @@ import { IUserEntity } from './user.entity';
 
 @Injectable()
 export class UserRepository implements IUserRepository {
-  constructor(@InjectModel('User') private readonly user: Model<IUserEntity>) {}
+  constructor(@InjectModel('User') private readonly user: Model<IUserEntity>) { }
 
   public async Create(data: User): Promise<User> {
     try {
@@ -78,6 +78,22 @@ export class UserRepository implements IUserRepository {
   }
 
   public async UpdateById(id: string, data: Partial<User>): Promise<User> {
+    try {
+      return await (
+        await this.user
+          .findByIdAndUpdate(id, data, { new: true })
+      ).save();
+    } catch (error) {
+      throw new HttpException(
+        {
+          message: `could not update user: ${error}`,
+        },
+        HttpStatus.BAD_REQUEST
+      );
+    }
+  }
+
+  public async UpdatePassById(id: string, data: Partial<User>): Promise<User> {
     try {
       return await (
         await this.user
