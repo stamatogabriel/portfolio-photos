@@ -30,4 +30,4 @@ UserSchema.pre<IUserEntity>(['save'], function (next) {
   next();
 });
 
-export interface IUserEntity extends Omit<User, '_id'>, Document { }
+export interface IUserEntity extends Omit<User, '_id'>, Document {}

@@ -84,7 +84,11 @@ export class UserController {
       storage: StorageTypes['s3'],
     })
   )
-  public async update(@Param('id') param: string, @Body() user: UpdateUserDto, @UploadedFiles() files) {
+  public async update(
+    @Param('id') param: string,
+    @Body() user: UpdateUserDto,
+    @UploadedFiles() files
+  ) {
     if (files && files.length) {
       user = { ...user, avatar: files[0].location };
     }
@@ -92,7 +96,11 @@ export class UserController {
   }
 
   @Put(':id/pass')
-  public async updatePassword(@Param('id') param: string, @Body() user: UpdateUserDto, @UploadedFiles() files) {
+  public async updatePassword(
+    @Param('id') param: string,
+    @Body() user: UpdateUserDto,
+    @UploadedFiles() files
+  ) {
     if (files && files.length) {
       user = { ...user, avatar: files[0].location };
     }
