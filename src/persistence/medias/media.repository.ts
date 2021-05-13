@@ -40,7 +40,7 @@ export class MediaRepository implements IMediaRepository {
       if (query.name) {
         data = {
           ...data,
-          title_portuguese: {
+          title_english: {
             $regex: diacriticSensitiveRegex(query.name),
             $options: 'i',
           },
