@@ -47,6 +47,13 @@ export class CategoryRepository implements ICategoryRepository {
         };
       }
 
+      if (query.type) {
+        data = {
+          ...data,
+          name_english: query.type,
+        };
+      }
+
       if (query.startDate && query.endDate)
         data = {
           ...data,
