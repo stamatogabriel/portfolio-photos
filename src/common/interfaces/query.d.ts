@@ -5,6 +5,7 @@ export interface IQuery {
   email?: string;
   name?: string;
   type?: string;
+  category?: string;
   startDate?: string;
   endDate?: string;
 }

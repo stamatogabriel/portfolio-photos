@@ -47,6 +47,13 @@ export class MediaRepository implements IMediaRepository {
         };
       }
 
+      if (query.category) {
+        data = {
+          ...data,
+          category_id: query.category,
+        };
+      }
+
       if (query.startDate && query.endDate)
         data = {
           ...data,
