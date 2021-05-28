@@ -90,7 +90,7 @@ export class AuthRepository implements IAuthRepository {
       `,
     });
 
-    return new HttpException('', HttpStatus.OK);
+    return new HttpException('Mail sended', HttpStatus.OK);
   }
 
   public async RedefinePass(token: string, password: string): Promise<unknown> {
