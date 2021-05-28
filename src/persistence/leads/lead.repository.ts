@@ -13,13 +13,13 @@ import { diacriticSensitiveRegex } from '../../common/logicals/diatric_sensitive
 export class LeadRepository implements ILeadRepository {
   constructor(
     @InjectModel('Lead') private readonly lead: Model<ILeadEntity>,
-    private readonly mailerService: MailerService,
-  ) { }
+    private readonly mailerService: MailerService
+  ) {}
 
   public async LeadCreate(data: Lead): Promise<Lead> {
     try {
       const lead = await this.lead.create(data);
-      
+
       await this.mailerService.sendMail({
         to: lead.email,
         from: lead.email,
@@ -30,7 +30,7 @@ export class LeadRepository implements ILeadRepository {
         `,
       });
 
-      return lead
+      return lead;
     } catch (error) {
       throw new HttpException(
         {
@@ -122,10 +122,7 @@ export class LeadRepository implements ILeadRepository {
     }
   }
 
-  public async LeadUpdateById(
-    id: string,
-    data: Partial<Lead>
-  ): Promise<Lead> {
+  public async LeadUpdateById(id: string, data: Partial<Lead>): Promise<Lead> {
     try {
       return await (
         await this.lead.findByIdAndUpdate(id, data, { new: true })

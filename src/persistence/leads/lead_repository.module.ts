@@ -6,9 +6,7 @@ import { LeadSchema } from './lead.entity';
 import { LeadRepoProvider } from './lead_persistance.provider';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([{ name: 'Lead', schema: LeadSchema }]),
-  ],
+  imports: [MongooseModule.forFeature([{ name: 'Lead', schema: LeadSchema }])],
   providers: [LeadRepoProvider],
   exports: [LeadRepoProvider],
 })

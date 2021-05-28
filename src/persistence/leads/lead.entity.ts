@@ -15,4 +15,4 @@ export const LeadSchema = new Schema(
   }
 );
 
-export interface ILeadEntity extends Omit<Lead, '_id'>, Document { }
+export interface ILeadEntity extends Omit<Lead, '_id'>, Document {}

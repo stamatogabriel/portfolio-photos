@@ -4,7 +4,7 @@ import { UserRepositoryModule } from './user/user_repository.module';
 import { AuthRepositoryModule } from './auth/auth_repository.module';
 import { CategoryRepositoryModule } from './categories/category_repository.module';
 import { MediaRepositoryModule } from './medias/media_repository.module';
-import { LeadRepositoryModule } from './leads/lead_repository.module'
+import { LeadRepositoryModule } from './leads/lead_repository.module';
 
 @Module({
   imports: [
@@ -12,14 +12,14 @@ import { LeadRepositoryModule } from './leads/lead_repository.module'
     AuthRepositoryModule,
     CategoryRepositoryModule,
     MediaRepositoryModule,
-    LeadRepositoryModule
+    LeadRepositoryModule,
   ],
   exports: [
     UserRepositoryModule,
     AuthRepositoryModule,
     CategoryRepositoryModule,
     MediaRepositoryModule,
-    LeadRepositoryModule
+    LeadRepositoryModule,
   ],
 })
 export class PersistenceModule {}

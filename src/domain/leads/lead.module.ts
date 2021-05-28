@@ -24,4 +24,4 @@ import { LeadRepositoryModule } from '../../persistence/leads/lead_repository.mo
     UpdateByIdLead,
   ],
 })
-export class LeadModule { }
+export class LeadModule {}

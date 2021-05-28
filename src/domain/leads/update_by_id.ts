@@ -6,9 +6,7 @@ const LeadRepo = () => Inject('LeadRepo');
 
 @Injectable()
 export class UpdateByIdLead {
-  constructor(
-    @LeadRepo() private readonly leadRepository: ILeadRepository
-  ) {}
+  constructor(@LeadRepo() private readonly leadRepository: ILeadRepository) {}
 
   public async updateById(id: string, lead: Partial<Lead>): Promise<Lead> {
     return await this.leadRepository.LeadUpdateById(id, lead);

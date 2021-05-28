@@ -58,10 +58,7 @@ export class LeadController {
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
-  public async update(
-    @Param('id') param: string,
-    @Body() lead: UpdateLeadDto
-  ) {
+  public async update(@Param('id') param: string, @Body() lead: UpdateLeadDto) {
     return this.updateLead.updateById(param, lead);
   }
 
